@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>Ken Burns Full Screen Slider</title>
+
+<link href='https://fonts.googleapis.com/css?family=Montserrat:700' rel='stylesheet' type='text/css'>
+<link href="burns.css" rel="stylesheet" type="text/css" />
+</head>
+
+<body>
+
+<!-- MAIN SLIDESHOW CONTAINER-->
+	<div id="slideshow">
+		<div id="burnscontainer">
+			
+			<!--BOTTOM NAVIGATION-->
+			<div class="navholder">
+				
+			</div>
+			<!-- NAVIGATION ARROWS (link to your own images via css)-->
+			<div class="navarrows">
+				<div class="leftarrow">
+				<
+				</div>
+				<div class="rightarrow">
+				>
+				</div>
+			</div>
+			
+			<!-- IMAGE DIVS (note, image sources done in CSS so users can more easily switch images for mobile displays if wanted.-->
+			<!-- slideback class also allows you to add png files with transparent effects!-->
+			<!--IMAGE 1-->
+			<div class="slideback currentslide burnsanimate">
+				<div class="burnsimage" id="img1">
+					<div class="burnscaption">
+						<h1>Caption #1</h1>
+						<h2>Free full screen Ken Burns Slider by <a href="http://www.boopinteractive.com.au">Boop Interactive</a></h2>
+					</div>
+				</div>
+			</div>
+			
+			<!--IMAGE 2-->
+			<div class="slideback">
+				<div class="burnsimage" id="img2">
+					<div class="burnscaption">
+						<h1>Caption #2</h1>
+						<h2>Simply copy the slides in as you need in HTML, add the image in CSS, and you're ready to implement!</h2>
+					</div>
+				</div>
+			</div>
+			
+			<!--IMAGE 3-->
+			<div class="slideback">
+				<div class="burnsimage" id="img3">
+					<div class="burnscaption">
+						<h1>Caption #3</h1>
+						<h2>Works on mobile, always full height, always full width!</h2>
+					</div>
+				</div>
+			</div>
+			
+			<!--IMAGE 4-->
+			<div class="slideback">
+				<div class="burnsimage" id="img4">
+					<div class="burnscaption">
+						<h1>Caption #4</h1>
+						<h2>Free stock images from <a href="https://unsplash.com/">unsplash.com/</a> &amp; <a href="https://stocksnap.io/">stocksnap.io/</a></h2>
+					</div>
+				</div>
+			</div>
+			
+			<!--IMAGE 5-->
+			<div class="slideback">
+				<div class="burnsimage" id="img5">
+					<div class="burnscaption">
+						<h1>Caption #5</h1>
+						<h2>Manipulate and share as you want! Free use slide show</h2>
+					</div>
+				</div>
+			</div>
+			
+		</div>
+	</div>
+	
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.0/jquery.min.js"></script>
+	<script src="http://ajax.googleapis.com/ajax/libs/jqueryui/1/jquery-ui.min.js"></script>
+	<script src="burns.js"></script>
+</body>
+</html>

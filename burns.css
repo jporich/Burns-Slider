@@ -1,0 +1,407 @@
+/*------------ BURNS SLIDER SLIDESHOW -------------------------------*/
+/*
+Created by Jimmy Porich
+Licence: None - Free use under Creative Commons!
+Adapt, share, and create. Unlimited commercial or personal use!
+Boop Interactive - http://www.boopinteractive.com.au
+
+*/
+html, body
+{
+	height: 100%;
+	min-height: 100%;
+	width: 100%;
+	margin: 0;
+	padding: 0;
+}
+
+
+/*--- IMAGES ---------------------------------------------*/
+
+/*position of background images optional, you will need to add in a new id on your images and reference them here
+everything else is taken care of via jQuery (adding nav items, transitions etc.)*/
+#img1
+{
+	background: url('img/architecture.png') no-repeat bottom center fixed;
+	-webkit-background-size: cover;
+ 	-moz-background-size: cover;
+  	-o-background-size: cover;
+  	background-size: cover;
+}
+
+#img2
+{
+	background: url('img/cityarchitecture.png') no-repeat bottom center fixed; 
+	-webkit-background-size: cover;
+ 	-moz-background-size: cover;
+  	-o-background-size: cover;
+  	background-size: cover;
+}
+#img3
+{
+	background: url('img/lookingupeuroarchitecture.png') no-repeat bottom center fixed;
+	-webkit-background-size: cover;
+ 	-moz-background-size: cover;
+  	-o-background-size: cover;
+  	background-size: cover; 
+}
+#img4
+{
+	
+	background: url('img/vinesoverwindows.png') no-repeat bottom center fixed; 
+	-webkit-background-size: cover;
+ 	-moz-background-size: cover;
+  	-o-background-size: cover;
+  	background-size: cover;
+}
+#img5
+{
+	
+	background: url('img/yellowapartmentdoor.png') no-repeat bottom center fixed;
+	-webkit-background-size: cover;
+ 	-moz-background-size: cover;
+  	-o-background-size: cover;
+  	background-size: cover; 
+}
+
+/*--- SLIDER CONTAINER ---------------------*/
+#slideshow
+{
+	position: relative;
+	width: 100%;
+	height: 100vh;
+}
+#burnscontainer
+{
+	width: 100%;
+	height: 100%;
+	position: absolute;
+	top:0;
+	overflow: hidden;
+	background: #CCC;
+	z-index: 1;
+}
+
+
+.burnsimage, .slideback
+{
+	position: absolute;
+	min-height: 100%;
+	height: 100%;
+	width: 100%;
+	z-index: 2;
+	background-color:#fff;
+}
+
+.burnscaption
+{
+	z-index: 20;
+	max-width: 600px;
+	position: absolute;
+	background: rgba(255,255,255,0.6);
+	font-family: 'Montserrat', sans-serif;
+	font-size: 100px;
+	right: 75px;
+	padding: 20px;
+	bottom: 120px;
+	text-decoration: none;
+}
+
+.burnscaption h1
+{
+	text-align: left;
+	font-size: 48px;
+	line-height:48px;
+	margin-bottom: 20px;
+	padding: 0;
+	color: #333;
+}
+
+h1 
+{
+	padding: 20px 0 20px 0;
+	width: 100%;
+	margin: 0 auto;
+	text-align: center;
+	margin-bottom: 40px;
+}
+
+h1 a {
+	text-decoration: none;
+}
+
+h2
+{
+	font-size: 32px;
+	color: rgba(0,0,0,0.8);
+}
+
+h2 a, h2 a:hover, h2 a:active, h2 a:visited
+{
+	color: #333;
+	text-decoration: none;
+}
+
+.h2 a:hover
+{
+	cursor: pointer;
+	
+}
+
+/*------ NAVIGATION -------------------------------------*/
+
+.leftarrow, .rightarrow, .navholder
+{
+	z-index: 20;	
+}
+
+.leftarrow, .rightarrow 
+{
+	text-align: center;
+	width: 70px;
+	height: 70px;
+	margin-top: -35px; /*half the size of container*/
+	border-radius: 50px;
+	font-size: 50px;/* Using < > text as arrows, throw in background image if you want fancier nav */
+	line-height: 70px;
+	background: rgba(255, 255, 255, 0.6);
+	color: #666;
+	position: absolute;
+	top: 50vh;
+	margin: 0 30px 0 30px;
+	-webkit-transition: all 0.5s ease-in-out; /* Safari */
+    transition: all 0.5s ease-in-out;
+	box-shadow: 2px 2px 2px rgba(0,0,0,0.3);
+	-webkit-touch-callout: none; /* iOS Safari */
+	-webkit-user-select: none;   /* Chrome/Safari/Opera */
+	-khtml-user-select: none;    /* Konqueror */
+	-moz-user-select: none;      /* Firefox */
+	-ms-user-select: none;       /* IE/Edge */
+	user-select: none;           /* non-prefixed version, currently
+                                  not supported by any browser */
+}
+
+.rightarrow 
+{
+	right: 0;	
+}
+
+.leftarrow:hover, .rightarrow:hover
+{
+	margin: 0 25px 0 25px;
+	cursor: pointer;
+	background-color: rgba(255,255,255,0.6);	
+}
+
+.navholder
+{
+	text-align: center;
+	bottom: 5vh;
+	left: 0;
+	right: 0;
+	margin: 0 auto;
+	position: absolute;
+	height: 40px;
+	width: 200px;
+	z-index: 20;
+}
+
+#burnsnav {
+	position: relative;
+	z-index: 21;
+}
+
+.navitem
+{
+	display: inline-block;
+	z-index: 22;
+	background: rgba(150,150,150,0.6);
+	height: 20px;
+	width: 20px;
+	border-radius: 10px;
+	margin: 0 5px 0 5px;
+	transform: translateY(50%);
+	-ms-transform: translateY(50%);
+	-moz-transform: translateY(50%);
+	-webkit-transform: translateY(50%);
+	-o-transform: translateY(50%);
+	box-shadow:2px 2px 2px rgba(0,0,0,0.3);
+}
+
+.navitem:hover 
+{
+	cursor: pointer;
+	background: rgba(255,255,255,0.9);
+}
+
+.activenav{
+	background: #fff;	
+}
+
+/*Current slide should always be a higher z-index than prevslide as slide "shuffle" between animations*/
+.currentslide
+{
+	z-index: 10;
+}
+
+.prevslide
+{
+	z-index: 8;
+}
+
+
+/*--- ANIMATIONS ----------------------------*/
+
+/*Classes for animation. Times must match or be more than times in burns.js calls to ensure enimation doesn't end short*/
+
+.burnsanimate 
+{
+	animation:kenburns 8s forwards, fader 0.3s forwards; /* Change this to alternate to stop the loop. */
+  	-ms-animation:kenburns 8s forwards, fader 0.3s forwards;
+  	-webkit-animation:kenburns 8s forwards, fader 0.3s forwards;
+  	-0-animation:kenburns 8s forwards, fader 0.3s forwards;
+  	-moz-animation:kenburns 8s forwards, fader 0.3s forwards;
+  	-webkit-animation-timing-function: linear; /* Chrome, Safari, Opera */
+    animation-timing-function: linear;
+  
+}
+
+/*animate captions for ken burns effect*/
+.captionanimate
+{
+	animation:captionslide 8s forwards, captionshrink 8s forwards; /* Change this to alternate to stop the loop. */
+  	-ms-animation:captionslide 8s forwards, captionshrink 8s forwards;
+  	-webkit-animation:captionslide 8s forwards, captionshrink 8s forwards;
+  	-0-animation:captionslide 8s forwards, captionshrink 8s forwards;
+  	-moz-animation:captionslide 8s forwards, captionshrink 8s forwards;
+  	-webkit-animation-timing-function: linear; /* Chrome, Safari, Opera */
+    animation-timing-function: linear;
+}
+
+/*Ken Burns effect can play with these options for fast/larger zoom */
+/*NOTE: uses scale to transform not background size as to not interfere with background-size: cover property
+this allows the image to always be full height/width while also able to maintain effect*/
+@-webkit-keyframes kenburns 
+{
+    0%   
+	{
+		-moz-transform: scale(1,1);
+    	-webkit-transform: scale(1,1);
+    	transform: scale(1,1); 
+	}
+    100%  
+	{
+		-moz-transform: scale(1.1,1.1);
+    	-webkit-transform: scale(1.1,1.1);
+    	transform: scale(1.1,1.1); 
+	}
+
+}
+
+@keyframes kenburns 
+{
+    0%   
+	{
+		-moz-transform: scale(1,1);
+    	-webkit-transform: scale(1,1);
+    	transform: scale(1,1); 
+	}
+    100%  
+	{
+		-moz-transform: scale(1.1,1.1);
+    	-webkit-transform: scale(1.1,1.1);
+    	transform: scale(1.1,1.1); 
+	}
+}
+
+/* Fading animation between slides */
+@-webkit-keyframes fader 
+{
+    0%   
+	{
+		opacity: 0;
+	}
+    100%  
+	{
+		opacity: 1;
+	}
+}
+
+@keyframes fader 
+{
+    0%   
+	{
+		opacity: 0;
+	}
+    100%  
+	{
+		opacity: 1;
+	}
+}
+
+/*OPTIONAL: Caption sliding animation*/
+@-webkit-keyframes captionslide 
+{
+    0%   
+	{
+		transform: translateX(0);
+		-moz-transform: scale(1.0,1.0);
+    	-webkit-transform: scale(1.0,1.0);
+    	transform: scale(1.0,1.0); 
+	}
+    100%  
+	{
+		transform: translateX(15%);
+		-moz-transform: scale(0.1,0.1);
+    	-webkit-transform: scale(0.1,0.1);
+    	transform: scale(0.1,0.1); 
+	}
+
+}
+
+@keyframes captionslide 
+{
+    0%   
+	{
+		transform: translateX(0);
+	}
+    100%  
+	{
+		transform: translateX(15%);
+	}
+}
+
+
+/*Shrink caption as it is a child of the current scaling animation, optional animation*/
+@-webkit-keyframes captionshrink 
+{
+    0%   
+	{
+		-moz-transform: scale(1.0,1.0);
+    	-webkit-transform: scale(1.0,1.0);
+    	transform: scale(1.0,1.0); 
+	}
+    100%  
+	{
+		-moz-transform: scale(0.9,0.9);
+    	-webkit-transform: scale(0.9,0.9);
+    	transform: scale(0.9,0.9); 
+	}
+
+}
+
+@keyframes captionshrink 
+{
+    0%   
+	{
+		-moz-transform: scale(1.0,1.0);
+    	-webkit-transform: scale(1.0,1.0);
+    	transform: scale(1.0,1.0);
+	}
+    100%  
+	{
+		-moz-transform: scale(0.9,0.9);
+    	-webkit-transform: scale(0.9,0.9);
+    	transform: scale(0.9,0.9); 
+	}
+}
